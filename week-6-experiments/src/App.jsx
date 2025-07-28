@@ -1,26 +1,11 @@
 import { useState } from "react";
 
 function App() {
-  const [title, setTitle] = useState("Hello World");
-
-  function titleChange () {
-    setTitle(`Hello React ${Math.random()}`);
-  }
+  
 
   return (
     <>
-      <button onClick={titleChange}>Click me</button>
-      <br />
-      <Header title={title}></Header>
-      <br />
-      <Header title="yadav"></Header>
-      <br />
-      <Header title="yadav"></Header>
-      <br />
-      <Header title="yadav"></Header>
-      <br />
-      <Header title="yadav"></Header>
-      <br />
+      <HeaderWithButton/>
       <Header title="yadav"></Header>
       <br />
       <Header title="yadav"></Header>
@@ -32,6 +17,20 @@ function App() {
   )
 }
 
+function HeaderWithButton() {
+  const [title, setTitle] = useState("Hello World");
+
+  function titleChange () {
+    setTitle(`Hello React ${Math.random()}`);
+  }
+  return (
+    <>
+    <button onClick={titleChange}>Click me</button>
+      <br />
+      <Header title={title}></Header>
+      </>
+  )
+}
 function Header({title}) {
   return (
     <>
