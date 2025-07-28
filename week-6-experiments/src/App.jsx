@@ -1,39 +1,31 @@
 import React, { useState } from "react";
 
+let count = 0;
 function App() {
-  const [title, setTitle] = useState("Hello World");
+  const [todos, setTodos] = useState([
+    { id: 1, title: "Learn React", description: "Study the basics of React." },
+    { id: 2, title: "Build a Todo App", description: "Create a simple todo application." },
+  ]);
 
-  function titleChange () {
-    setTitle(`Hello React ${Math.random()}`);
-  }
+  const addTodo = () => {
+    setTodos([
+      ...todos,
+      { id: count++, title: "New Todo", description: "This is a new todo item." },
+    ]);
+  };  
 
   return (
     <>
-      <button onClick={titleChange}>Click me</button>
-      <br />
-      <Header title={title}></Header>
-      <br />
-      <Header title="yadav"></Header>
-      <br />
-      <Header title="yadav"></Header>
-      <br />
-      <Header title="yadav"></Header>
-      <br />
-      <Header title="yadav"></Header>
-      <br />
-      <Header title="yadav"></Header>
-      <br />
-      <Header title="yadav"></Header>
-      <br />
-      <Header title="yadav"></Header>
-      <br />
-      <Header title="yadav"></Header>
+      <button onClick={addTodo}>Add Todo</button>
+      {todos.map(todo=><Todo key={todo.id} title={todo.title} description={todo.description}/>)}
     </>
   )
 }
-const Header = React.memo(({ title }) => {
-  console.log(`Rendering Header with title: ${title}`);
-  return <>{title}</>;
-});
+const Todo = ({ title,description }) => {
+  return  <>
+  <h1>{title}</h1>
+  <h5>{description}</h5>    
+  </>
+  };
 
 export default App
