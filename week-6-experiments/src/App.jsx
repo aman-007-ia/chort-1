@@ -4,28 +4,27 @@ function App() {
 
   return(
     <>
-      <CardWrapper innerComponent={<Card/>} />
-      <CardWrapper innerComponent={<Card2/>} />
+      <CardWrapper>
+        <CardWrapper>
+          <TextComp />
+        </CardWrapper>
+      </CardWrapper>
+      <CardWrapper>
+        Hi there, I am a card component!
+      </CardWrapper>
     </>
   )
 }
-const CardWrapper = ({ innerComponent }) => {
+const CardWrapper = ({ children }) => {
   return <div style={{border:"2px solid black",padding:20}}>
-    {innerComponent}
+    {children}
   </div>
+  }
+  
+const TextComp = () => {
+  return <>
+    hi ther is a text component
+  </>
   };
-
-const Card = () => {
-  return <div>
-    Hi there! I am a card component.
-  </div>
-}
-
-
-const Card2 = () => {
-  return <div>
-    Hi there! I am a card component.
-  </div>
-}
 
 export default App
