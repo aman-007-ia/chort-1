@@ -1,31 +1,31 @@
 import React, { useState } from "react";
 
-let count = 0;
 function App() {
-  const [todos, setTodos] = useState([
-    { id: 1, title: "Learn React", description: "Study the basics of React." },
-    { id: 2, title: "Build a Todo App", description: "Create a simple todo application." },
-  ]);
 
-  const addTodo = () => {
-    setTodos([
-      ...todos,
-      { id: count++, title: "New Todo", description: "This is a new todo item." },
-    ]);
-  };  
-
-  return (
+  return(
     <>
-      <button onClick={addTodo}>Add Todo</button>
-      {todos.map(todo=><Todo key={todo.id} title={todo.title} description={todo.description}/>)}
+      <CardWrapper innerComponent={<Card/>} />
+      <CardWrapper innerComponent={<Card2/>} />
     </>
   )
 }
-const Todo = ({ title,description }) => {
-  return  <>
-  <h1>{title}</h1>
-  <h5>{description}</h5>    
-  </>
+const CardWrapper = ({ innerComponent }) => {
+  return <div style={{border:"2px solid black",padding:20}}>
+    {innerComponent}
+  </div>
   };
+
+const Card = () => {
+  return <div>
+    Hi there! I am a card component.
+  </div>
+}
+
+
+const Card2 = () => {
+  return <div>
+    Hi there! I am a card component.
+  </div>
+}
 
 export default App
