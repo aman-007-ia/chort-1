@@ -1,42 +1,39 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 function App() {
-  
-
-  return (
-    <>
-      <HeaderWithButton/>
-      <Header title="yadav"></Header>
-      <br />
-      <Header title="yadav"></Header>
-      <br />
-      <Header title="yadav"></Header>
-      <br />
-      <Header title="yadav"></Header>
-    </>
-  )
-}
-
-function HeaderWithButton() {
   const [title, setTitle] = useState("Hello World");
 
   function titleChange () {
     setTitle(`Hello React ${Math.random()}`);
   }
+
   return (
     <>
-    <button onClick={titleChange}>Click me</button>
+      <button onClick={titleChange}>Click me</button>
       <br />
       <Header title={title}></Header>
-      </>
-  )
-}
-function Header({title}) {
-  return (
-    <>
-    {title}
+      <br />
+      <Header title="yadav"></Header>
+      <br />
+      <Header title="yadav"></Header>
+      <br />
+      <Header title="yadav"></Header>
+      <br />
+      <Header title="yadav"></Header>
+      <br />
+      <Header title="yadav"></Header>
+      <br />
+      <Header title="yadav"></Header>
+      <br />
+      <Header title="yadav"></Header>
+      <br />
+      <Header title="yadav"></Header>
     </>
   )
 }
+const Header = React.memo(({ title }) => {
+  console.log(`Rendering Header with title: ${title}`);
+  return <>{title}</>;
+});
 
 export default App
