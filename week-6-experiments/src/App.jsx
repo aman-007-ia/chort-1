@@ -11,8 +11,6 @@ function App() {
         setTodos(data);
       });
   }, 10000);
-
-  // return () => clearInterval(intervalId); // cleanup
 }, []);
 
   return(
